@@ -1,0 +1,375 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Subscription Plans - Movie Hub</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#ea2a33",
+              "background-light": "#f8f6f6",
+              "background-dark": "#0a0707",
+              "card-dark": "#141414",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "2rem",
+              xl: "3rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: #0a0707;
+        color: white;
+        overflow-x: hidden;
+      }
+      .nav-blur {
+        backdrop-filter: blur(12px);
+        background-color: rgba(10, 7, 7, 0.8);
+      }
+      .plan-card:hover {
+        transform: translateY(-8px);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-dark text-white font-display min-h-screen flex flex-col">
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-white/5">
+      <div
+        class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="flex items-center gap-12">
+          <a class="flex items-center gap-2 group" href="index.html">
+            <div
+              class="w-10 h-10 bg-primary rounded flex items-center justify-center">
+              <span class="material-icons text-white">play_arrow</span>
+            </div>
+            <span class="text-2xl font-extrabold tracking-tighter text-white"
+              >MOVIE<span class="text-primary">HUB</span></span
+            >
+          </a>
+          <div
+            class="hidden lg:flex items-center gap-8 text-sm font-medium text-white/80">
+            <a class="text-white hover:text-primary transition-colors" href="index.html">Home</a>
+            <a class="text-white hover:text-primary transition-colors" href="#">Movies</a>
+            <a class="text-white hover:text-primary transition-colors" href="#"
+              >TV Shows</a
+            >
+            <a class="text-white hover:text-primary transition-colors" href="#"
+              >New &amp; Popular</a
+            >
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <div
+            class="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center overflow-hidden">
+            <img
+              alt="Profile"
+              class="w-full h-full object-cover"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyse9bGpvt5wA4fQhW_SY0TXCK9XRsT8-B0O6U8APnpA09TZ9Tn5m1Gxn00IR5Ct8c5AyS6KPLxQUFsx839D9Bmv6uX95KrsAo_3hgpS7F9rVZGg0D2YbwB0-X6-3LLGuspmXE2sxtAerV9uQ_O1kEKjS3NYH0Nsws2YU6R8NOthxjWfIWTALRz2Fu-ewT2Cf4TAspE7BAosK5DZfnKgumyqDrF9e1Z2JNyC7Wh60Xgzdgt8BIOPsekNCjmycVjFebqEMArfiMt5o" />
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="flex-grow pt-32 pb-20 px-6 relative">
+      <div
+        class="absolute top-20 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div
+        class="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="text-center mb-16 max-w-2xl mx-auto">
+          <h1 class="text-4xl md:text-5xl font-black mb-6 tracking-tight">
+            Choose Your Plan
+          </h1>
+          <p class="text-lg text-white/60">
+            Unlock unlimited access to the biggest blockbusters and exclusive
+            originals. Change or cancel anytime.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-24">
+          <div
+            class="bg-card-dark border border-white/10 rounded-2xl p-8 plan-card transition-all duration-300 flex flex-col h-full">
+            <h3 class="text-2xl font-bold mb-2">Basic</h3>
+            <p class="text-white/50 text-sm mb-6">Good for mobile watching.</p>
+            <div class="flex items-baseline gap-1 mb-8">
+              <span class="text-4xl font-bold">$8.99</span>
+              <span class="text-white/50">/month</span>
+            </div>
+            <div class="w-full h-[1px] bg-white/10 mb-8"></div>
+            <ul class="space-y-4 mb-8 flex-grow">
+              <li class="flex items-center gap-3 text-white/80">
+                <span class="material-icons text-primary text-xl">check</span>
+                <span>720p (HD) Resolution</span>
+              </li>
+              <li class="flex items-center gap-3 text-white/80">
+                <span class="material-icons text-primary text-xl">check</span>
+                <span>Watch on 1 screen</span>
+              </li>
+              <li class="flex items-center gap-3 text-white/80">
+                <span class="material-icons text-primary text-xl">check</span>
+                <span>Download on 1 device</span>
+              </li>
+              <li class="flex items-center gap-3 text-white/40">
+                <span class="material-icons text-xl">close</span>
+                <span>No ads</span>
+              </li>
+            </ul>
+            <button
+              class="w-full py-4 rounded-xl font-bold border border-white/20 hover:bg-white hover:text-black transition-all">
+              Select Basic
+            </button>
+          </div>
+          <div
+            class="bg-card-dark border-2 border-primary rounded-2xl p-8 plan-card transition-all duration-300 relative transform md:-translate-y-4 shadow-2xl shadow-primary/20 flex flex-col h-full">
+            <div
+              class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+              Most Popular
+            </div>
+            <h3 class="text-2xl font-bold mb-2 text-primary">Standard</h3>
+            <p class="text-white/50 text-sm mb-6">
+              Great for everyday entertainment.
+            </p>
+            <div class="flex items-baseline gap-1 mb-8">
+              <span class="text-4xl font-bold">$13.99</span>
+              <span class="text-white/50">/month</span>
+            </div>
+            <div class="w-full h-[1px] bg-white/10 mb-8"></div>
+            <ul class="space-y-4 mb-8 flex-grow">
+              <li class="flex items-center gap-3 text-white">
+                <span class="material-icons text-primary text-xl">check</span>
+                <span>1080p (Full HD) Resolution</span>
+              </li>
+              <li class="flex items-center gap-3 text-white">
+                <span class="material-icons text-primary text-xl">check</span>
+                <span>Watch on 2 screens</span>
+              </li>
+              <li class="flex items-center gap-3 text-white">
+                <span class="material-icons text-primary text-xl">check</span>
+                <span>Download on 2 devices</span>
+              </li>
+              <li class="flex items-center gap-3 text-white">
+                <span class="material-icons text-primary text-xl">check</span>
+                <span>Ad-free experience</span>
+              </li>
+            </ul>
+            <button
+              class="w-full py-4 rounded-xl font-bold bg-primary hover:bg-primary/90 text-white transition-all shadow-lg shadow-primary/40">
+              Select Standard
+            </button>
+          </div>
+          <div
+            class="bg-card-dark border border-white/10 rounded-2xl p-8 plan-card transition-all duration-300 flex flex-col h-full">
+            <h3 class="text-2xl font-bold mb-2">Premium</h3>
+            <p class="text-white/50 text-sm mb-6">
+              Cinematic experience at home.
+            </p>
+            <div class="flex items-baseline gap-1 mb-8">
+              <span class="text-4xl font-bold">$17.99</span>
+              <span class="text-white/50">/month</span>
+            </div>
+            <div class="w-full h-[1px] bg-white/10 mb-8"></div>
+            <ul class="space-y-4 mb-8 flex-grow">
+              <li class="flex items-center gap-3 text-white/80">
+                <span class="material-icons text-primary text-xl">check</span>
+                <span>4K (Ultra HD) + HDR</span>
+              </li>
+              <li class="flex items-center gap-3 text-white/80">
+                <span class="material-icons text-primary text-xl">check</span>
+                <span>Watch on 4 screens</span>
+              </li>
+              <li class="flex items-center gap-3 text-white/80">
+                <span class="material-icons text-primary text-xl">check</span>
+                <span>Download on 6 devices</span>
+              </li>
+              <li class="flex items-center gap-3 text-white/80">
+                <span class="material-icons text-primary text-xl">check</span>
+                <span>Spatial Audio</span>
+              </li>
+            </ul>
+            <button
+              class="w-full py-4 rounded-xl font-bold border border-white/20 hover:bg-white hover:text-black transition-all">
+              Select Premium
+            </button>
+          </div>
+        </div>
+        <div class="max-w-3xl mx-auto">
+          <h2 class="text-2xl font-bold mb-8 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div class="space-y-4">
+            <div
+              class="bg-card-dark/50 border border-white/5 rounded-xl p-6 hover:bg-card-dark transition-colors">
+              <details class="group">
+                <summary
+                  class="flex items-center justify-between cursor-pointer list-none">
+                  <span class="font-bold text-lg"
+                    >Can I cancel my subscription anytime?</span
+                  >
+                  <span
+                    class="material-icons transition-transform group-open:rotate-180 text-white/50"
+                    >expand_more</span
+                  >
+                </summary>
+                <p class="text-white/60 mt-4 leading-relaxed">
+                  Yes, you can cancel your subscription at any time. There are
+                  no long-term contracts or cancellation fees. You can continue
+                  to watch until the end of your billing period.
+                </p>
+              </details>
+            </div>
+            <div
+              class="bg-card-dark/50 border border-white/5 rounded-xl p-6 hover:bg-card-dark transition-colors">
+              <details class="group">
+                <summary
+                  class="flex items-center justify-between cursor-pointer list-none">
+                  <span class="font-bold text-lg"
+                    >How does the free trial work?</span
+                  >
+                  <span
+                    class="material-icons transition-transform group-open:rotate-180 text-white/50"
+                    >expand_more</span
+                  >
+                </summary>
+                <p class="text-white/60 mt-4 leading-relaxed">
+                  New members get a 7-day free trial. You won't be charged until
+                  the trial period ends. We'll send you a reminder email 3 days
+                  before your trial ends.
+                </p>
+              </details>
+            </div>
+            <div
+              class="bg-card-dark/50 border border-white/5 rounded-xl p-6 hover:bg-card-dark transition-colors">
+              <details class="group">
+                <summary
+                  class="flex items-center justify-between cursor-pointer list-none">
+                  <span class="font-bold text-lg"
+                    >What devices can I watch on?</span
+                  >
+                  <span
+                    class="material-icons transition-transform group-open:rotate-180 text-white/50"
+                    >expand_more</span
+                  >
+                </summary>
+                <p class="text-white/60 mt-4 leading-relaxed">
+                  Movie Hub is available on smart TVs, game consoles, streaming
+                  media players, smartphones, tablets, and web browsers.
+                </p>
+              </details>
+            </div>
+            <div
+              class="bg-card-dark/50 border border-white/5 rounded-xl p-6 hover:bg-card-dark transition-colors">
+              <details class="group">
+                <summary
+                  class="flex items-center justify-between cursor-pointer list-none">
+                  <span class="font-bold text-lg">How do I switch plans?</span>
+                  <span
+                    class="material-icons transition-transform group-open:rotate-180 text-white/50"
+                    >expand_more</span
+                  >
+                </summary>
+                <p class="text-white/60 mt-4 leading-relaxed">
+                  You can upgrade or downgrade your plan at any time from your
+                  Account page. Changes to a higher-tier plan take effect
+                  immediately, while downgrades take effect at the start of your
+                  next billing cycle.
+                </p>
+              </details>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="bg-black/50 border-t border-white/5 py-16 px-6">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div class="col-span-1 md:col-span-1">
+          <a class="flex items-center gap-2 mb-6" href="#">
+            <div
+              class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+              <span class="material-icons text-white text-sm">play_arrow</span>
+            </div>
+            <span class="text-xl font-extrabold tracking-tighter text-white"
+              >MOVIE<span class="text-primary">HUB</span></span
+            >
+          </a>
+          <p class="text-white/40 text-sm leading-relaxed">
+            Streaming the best movies and TV shows from around the world. Join
+            our community and watch together.
+          </p>
+          <div class="flex gap-4 mt-6">
+            <a
+              class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white/60 hover:text-white"
+              href="#">
+              <span class="material-icons text-xl">facebook</span>
+            </a>
+            <a
+              class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white/60 hover:text-white"
+              href="#">
+              <span class="material-icons text-xl">camera_alt</span>
+            </a>
+            <a
+              class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white/60 hover:text-white"
+              href="#">
+              <span class="material-icons text-xl">alternate_email</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-6">Platform</h4>
+          <ul class="space-y-3 text-white/50 text-sm">
+            <li><a class="hover:text-primary" href="#">Movies</a></li>
+            <li><a class="hover:text-primary" href="#">TV Shows</a></li>
+            <li><a class="hover:text-primary" href="#">Anime</a></li>
+            <li><a class="hover:text-primary" href="#">Documentaries</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-6">Support</h4>
+          <ul class="space-y-3 text-white/50 text-sm">
+            <li><a class="hover:text-primary" href="#">Help Center</a></li>
+            <li>
+              <a class="hover:text-primary" href="#">Subscription Plans</a>
+            </li>
+            <li><a class="hover:text-primary" href="#">Device Support</a></li>
+            <li><a class="hover:text-primary" href="#">Accessibility</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-6">Legal</h4>
+          <ul class="space-y-3 text-white/50 text-sm">
+            <li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+            <li><a class="hover:text-primary" href="#">Terms of Use</a></li>
+            <li>
+              <a class="hover:text-primary" href="#">Cookie Preferences</a>
+            </li>
+            <li><a class="hover:text-primary" href="#">Corporate Info</a></li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto border-t border-white/5 mt-16 pt-8 text-center text-white/30 text-xs">
+        © 2024 Movie Hub Streaming Service. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

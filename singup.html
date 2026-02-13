@@ -1,0 +1,283 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sign Up - Movie Hub</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet" />
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#ea2a33",
+              "background-light": "#f8f6f6",
+              "background-dark": "#211111", // Keeping base dark background
+              "surface-dark": "#1a1a1a", // Slightly lighter for the card
+              "input-dark": "#2a2a2a", // For input fields
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Custom scrollbar for webkit browsers */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #211111;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ea2a33;
+        border-radius: 4px;
+      }
+      .cinematic-bg {
+        background-image:
+          linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)),
+          url(https://lh3.googleusercontent.com/aida-public/AB6AXuCmFJ1AfsohH39J1gCxw6PeXZKRpDgpmuxIbTQDacXBvLTxGAK5xBJtpLt_DQg5EBYqAx0PCvgbL9Wdk2JhgG2uIfb40xx1xynkUiaQt6nCUj3o5XGs1JCqn-dio4mNEbrhd-DkQIVAFDSP8YYRGGu-U1ngVVTWgJTMHtTYZJwShrnftMljm9nLmpLhRp9iUBVrV1mJUvC9_sXW5pmXEvMNQH-hcuIwzbD1L0up84NPaQ4zVBUQvKR90sktf0Oz588wT6OygF_Bvj8);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      /* Custom Checkbox Styling */
+      .custom-checkbox:checked {
+        background-color: #ea2a33;
+        border-color: #ea2a33;
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-gray-900 dark:text-white min-h-screen flex items-center justify-center cinematic-bg"
+    data-alt="Cinematic movie collage background">
+    <!-- Logo Absolute Top Left -->
+    <div class="absolute top-6 left-6 z-20">
+      <div class="flex items-center gap-2">
+        <div
+          class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+          <span class="material-icons-round text-white text-xl"
+            >play_arrow</span
+          >
+        </div>
+        <span class="text-2xl font-bold tracking-tight text-white"
+          >Movie Hub</span
+        >
+      </div>
+    </div>
+    <!-- Main Container -->
+    <main class="w-full max-w-lg p-4 z-10 animate-fade-in-up">
+      <!-- Glass/Card Container -->
+      <div
+        class="bg-white dark:bg-surface-dark/95 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden border border-gray-200 dark:border-white/10">
+        <!-- Progress Stepper -->
+        <div
+          class="bg-gray-50 dark:bg-black/20 px-8 py-6 border-b border-gray-200 dark:border-white/5">
+          <div class="flex items-center justify-between relative">
+            <!-- Progress Line Background -->
+            <div
+              class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-0.5 bg-gray-300 dark:bg-gray-700 -z-10"></div>
+            <!-- Step 1: Account (Active) -->
+            <div
+              class="flex flex-col items-center gap-2 bg-white dark:bg-surface-dark px-2 z-10">
+              <div
+                class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_10px_rgba(234,42,51,0.5)]">
+                <span class="material-icons-round text-white text-sm font-bold"
+                  >person</span
+                >
+              </div>
+              <span class="text-xs font-semibold text-primary">Account</span>
+            </div>
+            <!-- Step 2: Plan (Inactive) -->
+            <a
+              href="price.html"
+              class="flex flex-col items-center gap-2 bg-white dark:bg-surface-dark px-2 z-10 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+              <div
+                class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center border border-gray-300 dark:border-gray-600 hover:border-primary transition-colors">
+                <span class="text-sm font-bold text-gray-500 dark:text-gray-400"
+                  >2</span
+                >
+              </div>
+              <span class="text-xs font-medium text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+                >Plan</span
+              >
+            </a>
+            <!-- Step 3: Payment (Inactive) -->
+            <a
+              href="payment.html"
+              class="flex flex-col items-center gap-2 bg-white dark:bg-surface-dark px-2 z-10 opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+              <div
+                class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center border border-gray-300 dark:border-gray-600 hover:border-primary transition-colors">
+                <span class="text-sm font-bold text-gray-500 dark:text-gray-400"
+                  >3</span
+                >
+              </div>
+              <span class="text-xs font-medium text-gray-500 dark:text-gray-400 hover:text-primary transition-colors"
+                >Payment</span
+              >
+            </a>
+          </div>
+        </div>
+        <!-- Form Content -->
+        <div class="p-8">
+          <div class="mb-8 text-center">
+            <h1 class="text-2xl md:text-3xl font-bold mb-2">
+              Create your account
+            </h1>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">
+              Start your 30-day free trial. Cancel anytime.
+            </p>
+          </div>
+          <form class="space-y-5">
+            <!-- Name Fields -->
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-1.5">
+                <label
+                  class="block text-xs font-medium text-gray-400 uppercase tracking-wider"
+                  for="firstName"
+                  >First Name</label
+                >
+                <input
+                  class="w-full bg-gray-50 dark:bg-input-dark border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  id="firstName"
+                  placeholder="John"
+                  type="text" />
+              </div>
+              <div class="space-y-1.5">
+                <label
+                  class="block text-xs font-medium text-gray-400 uppercase tracking-wider"
+                  for="lastName"
+                  >Last Name</label
+                >
+                <input
+                  class="w-full bg-gray-50 dark:bg-input-dark border border-gray-300 dark:border-gray-700 rounded-lg px-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  id="lastName"
+                  placeholder="Doe"
+                  type="text" />
+              </div>
+            </div>
+            <!-- Email Field -->
+            <div class="space-y-1.5">
+              <label
+                class="block text-xs font-medium text-gray-400 uppercase tracking-wider"
+                for="email"
+                >Email Address</label
+              >
+              <div class="relative">
+                <span
+                  class="material-icons-round absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg"
+                  >mail</span
+                >
+                <input
+                  class="w-full bg-gray-50 dark:bg-input-dark border border-gray-300 dark:border-gray-700 rounded-lg pl-10 pr-4 py-3 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  id="email"
+                  placeholder="john.doe@example.com"
+                  type="email" />
+              </div>
+            </div>
+            <!-- Password Field -->
+            <div class="space-y-1.5">
+              <label
+                class="block text-xs font-medium text-gray-400 uppercase tracking-wider"
+                for="password"
+                >Create Password</label
+              >
+              <div class="relative">
+                <span
+                  class="material-icons-round absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg"
+                  >lock</span
+                >
+                <input
+                  class="w-full bg-gray-50 dark:bg-input-dark border border-gray-300 dark:border-gray-700 rounded-lg pl-10 pr-10 py-3 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  id="password"
+                  placeholder="Min. 8 characters"
+                  type="password" />
+                <button
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors focus:outline-none"
+                  type="button">
+                  <span class="material-icons-round text-lg">visibility</span>
+                </button>
+              </div>
+            </div>
+            <!-- Terms Checkbox -->
+            <div class="flex items-start gap-3 mt-6">
+              <div class="flex h-6 items-center">
+                <input
+                  class="custom-checkbox h-5 w-5 rounded border-gray-600 bg-input-dark text-primary focus:ring-primary focus:ring-offset-surface-dark"
+                  id="terms"
+                  name="terms"
+                  type="checkbox" />
+              </div>
+              <div class="text-sm leading-6">
+                <label class="font-medium text-gray-300" for="terms"
+                  >I agree to the
+                  <a class="text-primary hover:text-red-400 underline" href="#"
+                    >Terms and Conditions</a
+                  >
+                  and
+                  <a class="text-primary hover:text-red-400 underline" href="#"
+                    >Privacy Policy</a
+                  >.</label
+                >
+              </div>
+            </div>
+            <!-- Submit Button -->
+            <button
+              class="w-full bg-primary hover:bg-red-600 text-white font-bold py-3.5 rounded-lg shadow-lg shadow-red-900/20 transform transition-all active:scale-[0.98] mt-4 flex items-center justify-center gap-2 group"
+              type="button">
+              <span>Create Account</span>
+              <span
+                class="material-icons-round text-lg group-hover:translate-x-1 transition-transform"
+                >arrow_forward</span
+              >
+            </button>
+            <!-- Sign In Link -->
+            <div
+              class="text-center mt-6 pt-4 border-t border-gray-200 dark:border-white/10">
+              <p class="text-gray-400 text-sm">
+                Already have an account?
+                <a
+                  class="text-white font-semibold hover:text-primary transition-colors ml-1"
+                  href="#"
+                  >Sign In</a
+                >
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Bottom copyright -->
+      <div class="mt-8 text-center opacity-60">
+        <p class="text-xs text-white">
+          © 2023 Movie Hub Inc. All rights reserved.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

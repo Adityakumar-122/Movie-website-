@@ -1,0 +1,635 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Movie Hub - Trending &amp; Home</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet" />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#ea2a33",
+              "background-light": "#f8f6f6",
+              "background-dark": "#0a0707", // Deepened for cinematic feel
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "1rem",
+              lg: "2rem",
+              xl: "3rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        background-color: #0a0707;
+        color: white;
+        overflow-x: hidden;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .hero-gradient {
+        background: linear-gradient(
+          0deg,
+          #0a0707 0%,
+          rgba(10, 7, 7, 0.6) 50%,
+          rgba(10, 7, 7, 0) 100%
+        );
+      }
+      .nav-blur {
+        backdrop-filter: blur(12px);
+        background-color: rgba(10, 7, 7, 0.4);
+      }
+      .poster-card:hover .poster-overlay {
+        opacity: 1;
+      }
+      .poster-card:hover img {
+        transform: scale(1.1);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display">
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-white/5">
+      <div
+        class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div class="flex items-center gap-12">
+          <a class="flex items-center gap-2 group" href="#">
+            <div
+              class="w-10 h-10 bg-primary rounded flex items-center justify-center">
+              <span class="material-icons text-white">play_arrow</span>
+            </div>
+            <span class="text-2xl font-extrabold tracking-tighter text-white"
+              >MOVIE<span class="text-primary">HUB</span></span
+            >
+          </a>
+          <div
+            class="hidden lg:flex items-center gap-8 text-sm font-medium text-white/80">
+            <a class="text-white hover:text-primary transition-colors" href="index.html"
+              >Home</a
+            >
+            <a class="text-white hover:text-primary transition-colors" href="tredinding.html">Trending</a>
+            <a class="text-white hover:text-primary transition-colors" href="#">Movies</a>
+            <a class="text-white hover:text-primary transition-colors" href="#"
+              >TV Shows</a
+            >
+            <a class="text-white hover:text-primary transition-colors" href="#"
+              >New &amp; Popular</a
+            >
+            <a class="text-white hover:text-primary transition-colors" href="#">My List</a>
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <button class="text-white/80 hover:text-primary transition-colors">
+            <span class="material-icons">search</span>
+          </button>
+          <button
+            class="text-white/80 hover:text-primary transition-colors relative">
+            <span class="material-icons">notifications</span>
+            <span
+              class="absolute -top-1 -right-1 w-4 h-4 bg-primary rounded-full text-[10px] flex items-center justify-center font-bold"
+              >3</span
+            >
+          </button>
+          <a
+            href="price.html"
+            target="_blank"
+            class="hidden sm:block bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-full text-sm font-bold transition-all">
+            Subscribe
+          </a>
+          <button
+            class="lg:hidden text-white/80 hover:text-primary transition-colors"
+            id="mobile-menu-btn">
+            <span class="material-icons">menu</span>
+          </button>
+          <a
+            href="login.html"
+            class="w-10 h-10 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center overflow-hidden hover:border-primary transition-all">
+            <img
+              alt="Profile"
+              class="w-full h-full object-cover cursor-pointer"
+              data-alt="User profile avatar"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyse9bGpvt5wA4fQhW_SY0TXCK9XRsT8-B0O6U8APnpA09TZ9Tn5m1Gxn00IR5Ct8c5AyS6KPLxQUFsx839D9Bmv6uX95KrsAo_3hgpS7F9rVZGg0D2YbwB0-X6-3LLGuspmXE2sxtAerV9uQ_O1kEKjS3NYH0Nsws2YU6R8NOthxjWfIWTALRz2Fu-ewT2Cf4TAspE7BAosK5DZfnKgumyqDrF9e1Z2JNyC7Wh60Xgzdgt8BIOPsekNCjmycVjFebqEMArfiMt5o" />
+          </a>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div
+        class="hidden lg:hidden bg-background-dark/95 backdrop-blur-sm border-b border-white/5"
+        id="mobile-menu">
+        <div class="max-w-7xl mx-auto px-6 py-4 space-y-2">
+          <a
+            class="block text-white hover:text-primary transition-colors py-2 text-sm font-medium"
+            href="index.html"
+            >Home</a
+          >
+          <a
+            class="block text-white hover:text-primary transition-colors py-2 text-sm font-medium"
+            href="tredinding.html"
+            >Trending</a
+          >
+          <a
+            class="block text-white hover:text-primary transition-colors py-2 text-sm font-medium"
+            href="#"
+            >Movies</a
+          >
+          <a
+            class="block text-white hover:text-primary transition-colors py-2 text-sm font-medium"
+            href="#"
+            >TV Shows</a
+          >
+          <a
+            class="block text-white hover:text-primary transition-colors py-2 text-sm font-medium"
+            href="#"
+            >New &amp; Popular</a
+          >
+          <a
+            class="block text-white hover:text-primary transition-colors py-2 text-sm font-medium"
+            href="#"
+            >My List</a
+          >
+          <a
+            href="price.html"
+            target="_blank"
+            class="block bg-primary hover:bg-primary/90 text-white px-4 py-2 rounded-full text-sm font-bold transition-all text-center mt-4"
+            >Subscribe</a
+          >
+        </div>
+      </div>
+    </nav>
+    <script>
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
+    <!-- Hero Section -->
+    <section class="relative h-screen w-full overflow-hidden flex items-center">
+      <!-- Hero Background -->
+      <div class="absolute inset-0 z-0">
+        <img
+          alt="Hero Banner"
+          class="w-full h-full object-cover"
+          data-alt="Cinematic background of a sci-fi blockbuster movie"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6m-jHMTEO82Q-dmMoZSuvI0pFg004rU-zlHfNa0QBhZRa2K08VxbgQyZYIeoQ1XWrp4l-XxYjwiJ6vBLWJdcxpU1pER_CTu8OwSKj4xrkdibBw9Q-7gNTQwBrQWAqCgp21Iz6Ul2w80RWkEhI2IUohE4JpQ3VR1fL4iuOh2I7agA5FkFR3blBRKa7qj1K8Jp9m-QcU24ag1IVr6U_QyHd-bNMDcC8HggYLOSbaco0WEx9R5yEv1jCW4DO8R4AuUTbv5mBrnf9R-Q" />
+        <div class="absolute inset-0 hero-gradient"></div>
+      </div>
+      <!-- Hero Content -->
+      <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
+        <div class="max-w-2xl">
+          <div class="flex items-center gap-3 mb-6">
+            <span
+              class="bg-primary/20 border border-primary/40 text-primary px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase"
+              >Streaming Exclusive</span
+            >
+            <div class="flex items-center gap-1 text-yellow-500">
+              <span class="material-icons text-sm">star</span>
+              <span class="text-sm font-bold text-white">4.9</span>
+            </div>
+          </div>
+          <h1
+            class="text-7xl lg:text-8xl font-black mb-6 leading-[0.9] tracking-tight text-white uppercase italic">
+            Cyber <br />
+            <span class="text-primary">Origins</span>
+          </h1>
+          <p class="text-lg text-white/70 mb-8 max-w-lg leading-relaxed">
+            In a future where memory is a commodity, a lone architect uncovers
+            the truth about the world's first synthetic soul. Experience the
+            journey that redefined humanity.
+          </p>
+          <div class="flex items-center gap-4">
+            <button
+              class="flex items-center gap-3 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">
+              <span class="material-icons">play_arrow</span>
+              Play Now
+            </button>
+            <button
+              class="flex items-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white px-8 py-4 rounded-full font-bold transition-all border border-white/20">
+              <span class="material-icons">info</span>
+              More Info
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Trending Now Section -->
+    <section class="relative z-20 pb-24">
+      <div class="max-w-[1440px] mx-auto px-6">
+        <div class="flex items-center justify-between mb-8">
+          <div class="flex items-center gap-4">
+            <h2 class="text-3xl font-extrabold text-white">Trending Now</h2>
+            <div class="h-[2px] w-24 bg-primary mt-2"></div>
+          </div>
+          <div class="flex gap-2">
+            <button
+              class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/40 transition-all">
+              <span class="material-icons text-white">chevron_left</span>
+            </button>
+            <button
+              class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary/20 hover:border-primary/40 transition-all">
+              <span class="material-icons text-white">chevron_right</span>
+            </button>
+          </div>
+        </div>
+        <div class="flex gap-6 overflow-x-auto hide-scrollbar py-4 px-2">
+          <!-- Movie Card 1 -->
+          <div
+            class="group relative flex-none w-[220px] lg:w-[260px] aspect-[2/3] rounded-xl overflow-hidden cursor-pointer poster-card transition-all duration-300">
+            <img
+              alt="Movie 1"
+              class="w-full h-full object-cover transition-transform duration-500"
+              data-alt="Action movie poster with dark moody colors"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZqHNL-CG7D2lC_NYkthvoJRe2GT9K9UwW88z0eJyIrh8bGhHXsSPxUW384_wEVS2-jK80HglRQbMPsL4VjvP5k-QWULNub-be9msRNh_G6yMMtIdok-HVs3TVtJQcjMSKDD3GSxo2CuSoC_8FOKKorSjR-gruK-xFjHCHrNiWhV7xzQZttYARKQfEA231uYVRBVkdtI0EKPzSqwFL6733XO5y3k4UbaxtmCyIU0pn9qPz_TlG4sAiP4opyqrPTic5sLk1LTtTQhs" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-primary text-[10px] font-bold px-2 py-0.5 rounded"
+                  >HD</span
+                >
+                <span class="text-[10px] font-bold text-white/70">2024</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-4">
+                Interstellar Shift
+              </h3>
+              <div class="flex items-center gap-2">
+                <a
+                  href="watch.html"
+                  class="flex-1 bg-white text-black py-2 rounded-full text-xs font-bold hover:bg-primary hover:text-white transition-colors text-center">
+                  Watch
+                </a>
+                <button
+                  class="w-10 h-10 bg-primary/20 hover:bg-primary text-primary hover:text-white rounded-full flex items-center justify-center transition-all"
+                  title="Watch Party">
+                  <span class="material-icons text-sm">groups</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Movie Card 2 -->
+          <div
+            class="group relative flex-none w-[220px] lg:w-[260px] aspect-[2/3] rounded-xl overflow-hidden cursor-pointer poster-card transition-all duration-300">
+            <img
+              alt="Movie 2"
+              class="w-full h-full object-cover transition-transform duration-500"
+              data-alt="Fantasy movie poster with vibrant glowing elements"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4fEYt_kThrTz_5_WpzTGNumshooaIwgSrcnFV8DpRDLxcDad_t5xcj4d0EGZtEoS96nv3ESRcKC4v0cPeAYUbKX1CuXV1o79pYVNK9QZnCwCeJ8P6QnAR4MZzT7AuWMN19Nr-Br9wUWCPsYKcgTwLtGkbKlL36_rSwbJq28id-_VdsxTkucfYKcTlIulmUOBJ8ChTk9bbLM0IjUg1FT6sVh4h47ocLm8n9VsRXhfIgr_fcB53vZQBQLv-5a8cCPwCZR2CjHIGKR4" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-primary text-[10px] font-bold px-2 py-0.5 rounded"
+                  >4K</span
+                >
+                <span class="text-[10px] font-bold text-white/70">2023</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-4">The Last Realm</h3>
+              <div class="flex items-center gap-2">
+                <a
+                  href="watch.html"
+                  class="flex-1 bg-white text-black py-2 rounded-full text-xs font-bold hover:bg-primary hover:text-white transition-colors text-center">
+                  Watch
+                </a>
+                <button
+                  class="w-10 h-10 bg-primary/20 hover:bg-primary text-primary hover:text-white rounded-full flex items-center justify-center transition-all"
+                  title="Watch Party">
+                  <span class="material-icons text-sm">groups</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Movie Card 3 -->
+          <div
+            class="group relative flex-none w-[220px] lg:w-[260px] aspect-[2/3] rounded-xl overflow-hidden cursor-pointer poster-card transition-all duration-300">
+            <img
+              alt="Movie 3"
+              class="w-full h-full object-cover transition-transform duration-500"
+              data-alt="Documentary movie poster showing nature landscapes"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuChcK8_BkM-CXGDeyax8xCHUcggHlgySWXsOpfcumFouiny1r3rcWBe5cfVCouZeChF3eHaiZuhD3I2JWdVOBJhO5cSm7-lvW31n7X_pPdnpTwiZvAnHg7OVfbHRQUCJMgJXxziqE6gQDd_xQ9RfaOOu_gyTAmugGXP7DxydEfaExlw4RvQlLufiHuDs8U4-4_3Amlbe_IKwqEYzNTbcFbEtvCHF3DvIkYxcCT2HeGG7t9O7k7WDQnNh_Q7JsPzGomMxtEZb3BQ6Fg" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-primary text-[10px] font-bold px-2 py-0.5 rounded"
+                  >HD</span
+                >
+                <span class="text-[10px] font-bold text-white/70">2024</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-4">Into The Wild</h3>
+              <div class="flex items-center gap-2">
+                <a
+                  href="watch.html"
+                  class="flex-1 bg-white text-black py-2 rounded-full text-xs font-bold hover:bg-primary hover:text-white transition-colors text-center">
+                  Watch
+                </a>
+                <button
+                  class="w-10 h-10 bg-primary/20 hover:bg-primary text-primary hover:text-white rounded-full flex items-center justify-center transition-all"
+                  title="Watch Party">
+                  <span class="material-icons text-sm">groups</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Movie Card 4 -->
+          <div
+            class="group relative flex-none w-[220px] lg:w-[260px] aspect-[2/3] rounded-xl overflow-hidden cursor-pointer poster-card transition-all duration-300">
+            <img
+              alt="Movie 4"
+              class="w-full h-full object-cover transition-transform duration-500"
+              data-alt="Horror movie poster with dark shadows"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9Dnkv4I2tmKSqSKvxl45_XjSKJAdwz-s7YwnWLxqPTXtPd4yEHTcggr0kh1INhM2gMIYDaUGr8HclMHS8zHuLn2Ukiwyjx7KnAqGbcPjdRIkzLkfQagCBt_iQi3XfdflUjMKjkCXVcesD90fK21qOQsRh8l4m1eaRzdoYF3Oq2ZV_oPM7BIix_MF1AE_LgG0eKTnpTgPjCvj5DW9fuQ63NFuvOBxJDeZ2_odx2CFDiKxuAD3HvfNKTEAj1GGduIWsgNlBeYcW2lI" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-primary text-[10px] font-bold px-2 py-0.5 rounded"
+                  >4K</span
+                >
+                <span class="text-[10px] font-bold text-white/70">2024</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-4">Shadow Falls</h3>
+              <div class="flex items-center gap-2">
+                <a
+                  href="watch.html"
+                  class="flex-1 bg-white text-black py-2 rounded-full text-xs font-bold hover:bg-primary hover:text-white transition-colors text-center">
+                  Watch
+                </a>
+                <button
+                  class="w-10 h-10 bg-primary/20 hover:bg-primary text-primary hover:text-white rounded-full flex items-center justify-center transition-all"
+                  title="Watch Party">
+                  <span class="material-icons text-sm">groups</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Movie Card 5 -->
+          <div
+            class="group relative flex-none w-[220px] lg:w-[260px] aspect-[2/3] rounded-xl overflow-hidden cursor-pointer poster-card transition-all duration-300">
+            <img
+              alt="Movie 5"
+              class="w-full h-full object-cover transition-transform duration-500"
+              data-alt="Drama movie poster with emotional characters"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuVE-qvejVgQkLjniSFZO2DvljJjym9mZEiLOP3UlrZJULkPKDXN259WeMakDcrqLpg6kL7ltrR71A7yeOH9GclkXzPagPA-eHnV0sbQI5Q8-nemV25iAsFX3Hd2u1plhmFRVSiG0x_cKLky81oR2Bd0NTJMA1m-UVokwxxYjM1SP_lXhGdvCSeqL-b78VbXfJ8NNtx-imZqoJVJk6enW2M-kfnOZ5-ONYyJ5mgAhg-pvHhnI11H8SMlV2e_TyyQtRu297JDeSKeE" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-primary text-[10px] font-bold px-2 py-0.5 rounded"
+                  >HD</span
+                >
+                <span class="text-[10px] font-bold text-white/70">2023</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-4">Quiet Whispers</h3>
+              <div class="flex items-center gap-2">
+                <a
+                  href="watch.html"
+                  class="flex-1 bg-white text-black py-2 rounded-full text-xs font-bold hover:bg-primary hover:text-white transition-colors text-center">
+                  Watch
+                </a>
+                <button
+                  class="w-10 h-10 bg-primary/20 hover:bg-primary text-primary hover:text-white rounded-full flex items-center justify-center transition-all"
+                  title="Watch Party">
+                  <span class="material-icons text-sm">groups</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Movie Card 6 -->
+          <div
+            class="group relative flex-none w-[220px] lg:w-[260px] aspect-[2/3] rounded-xl overflow-hidden cursor-pointer poster-card transition-all duration-300">
+            <img
+              alt="Movie 6"
+              class="w-full h-full object-cover transition-transform duration-500"
+              data-alt="Comedy movie poster with bright fun colors"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG2GIhrR6JOQ_4ob8rPez4DUtEuuTIlxU0_MM_LA9EO7t4m5QF_D3NaeaPfLj-BgPzBp42iR7zada-2EoCE4HHWHEwZFma64CY08vvFChYsF1luKo0Kbu7PmX0a6Xu3xv-NHUD8eShFxlOOJWp5S-RFBESUc-_gdOT4UTLdJFK3oVhIU6jhxP0rLcStu1tS4RUM2FdBmvcunHoB6MfabL5La9Ei2XCDr40WTTtYbAoHVJqZzNKUTreMxmFzwCqqhBNPaK-drSaJNo" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+              <div class="flex items-center gap-2 mb-2">
+                <span
+                  class="bg-primary text-[10px] font-bold px-2 py-0.5 rounded"
+                  >HD</span
+                >
+                <span class="text-[10px] font-bold text-white/70">2024</span>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-4">Summer Vibes</h3>
+              <div class="flex items-center gap-2">
+                <a
+                  href="watch.html"
+                  class="flex-1 bg-white text-black py-2 rounded-full text-xs font-bold hover:bg-primary hover:text-white transition-colors text-center">
+                  Watch
+                </a>
+                <button
+                  class="w-10 h-10 bg-primary/20 hover:bg-primary text-primary hover:text-white rounded-full flex items-center justify-center transition-all"
+                  title="Watch Party">
+                  <span class="material-icons text-sm">groups</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Popular Categories -->
+    <section class="pb-32 px-6">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold text-white mb-8">Explore Categories</h2>
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
+          <div
+            class="group relative h-24 rounded-2xl overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-primary/40 group-hover:bg-primary transition-colors flex items-center justify-center z-10">
+              <span class="font-bold text-lg uppercase tracking-wider"
+                >Action</span
+              >
+            </div>
+            <img
+              alt="Action"
+              class="w-full h-full object-cover"
+              data-alt="Abstract action movie texture"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyqzeSvVvBDkZ9uvLdY8VHm6sNBv2UKlr1L-r1nGiLZc8q9NHCExzMQQEVlvkcsm064uVQ5_QOjb2qCuK_dShZmpuZhWa0-ycAdIJ9SXLlmwwJEjT4sU_il10JdwB4ouIwVKNML5q9SEPZf0paNc5D7jwzTUlC3PdLYil11sX1WpPD6gvYWhN3zUelHq49ufoCRb7rKhqVBBp_HIwiLDFDzdkAaDQXFt1E3VTBtCxlqOtmzPy3rfLoQWf0qRbjUZ5C56-1qrJ1sq8" />
+          </div>
+          <div
+            class="group relative h-24 rounded-2xl overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-purple-600/40 group-hover:bg-purple-600 transition-colors flex items-center justify-center z-10">
+              <span class="font-bold text-lg uppercase tracking-wider"
+                >Sci-Fi</span
+              >
+            </div>
+            <img
+              alt="Sci-Fi"
+              class="w-full h-full object-cover"
+              data-alt="Abstract sci-fi galaxy texture"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqX70Auu3Nu-HlRE4IcGC_V98sSNMoSmQq-wUQkcjZ6t9ONpokZ9iSlbxCMAtN0S5mtH5Ytecdv19bMn0UBM1bcZpYel_3OONoqcy2sZmcZ37iwQIyJwDtwnOlnCX2uPcn-eypWm7PtnqypSeMBUwz1nEuNpvWoMVBgw6GY2WPYWFTkqlx--wAG93pTJbi8nTkJMXm99BH_AeQZTd8abTeRj2Ecz2Vpm7lHESTfOEd5L_sIl3P1tH7RUsq9ZX0EYdsZ0O7SeKkSsg" />
+          </div>
+          <div
+            class="group relative h-24 rounded-2xl overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-blue-600/40 group-hover:bg-blue-600 transition-colors flex items-center justify-center z-10">
+              <span class="font-bold text-lg uppercase tracking-wider"
+                >Drama</span
+              >
+            </div>
+            <img
+              alt="Drama"
+              class="w-full h-full object-cover"
+              data-alt="Abstract dramatic texture"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdR3L6q0VBv1_TTHiqBriq-Lpr-Q3CL2j_epeV4W-wtWzWObDeazmFrM2ZCBY5edVJkZ7cxQ5JluuCW3z4V-97gRevjWH4pxikpJmzQpSCb7lX9mesjGLVToWi5NA0eT3owzs_L98a-EY0_R9wIAg9LRRPRUj2AbivW_f0zsHZik-mNawcWMAotrl2HRWdT8i-t-BUkdRiNNe8AprhiszrsYElk0JSFV4_sl1dro6zBrLOufDRWYneU1Umu3NIABnhCuVRB3LwYcc" />
+          </div>
+          <div
+            class="group relative h-24 rounded-2xl overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-yellow-600/40 group-hover:bg-yellow-600 transition-colors flex items-center justify-center z-10">
+              <span class="font-bold text-lg uppercase tracking-wider"
+                >Comedy</span
+              >
+            </div>
+            <img
+              alt="Comedy"
+              class="w-full h-full object-cover"
+              data-alt="Bright comedic yellow texture"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwoBWniO8Z080T9IpIFFlasVHM8n3IMCbdVeOppsdK49XKSlNA3knXcM_0fM_lZWdaAog0daJuwC4VlIbkw66S3Uwfv7sc7_BBZx-WmCvpbopy9S5AeQ_8u_H4oam7AjXOJH7z36YBJHGQeVJs8PcQQX5TCiYNorAs0r5cXxaDu6E-wfDU76kVhVr6wgFahMucb4NO8nApw6jrV_dvJ1zGIaTwMBoeF2DJLNkZQyAjXyAnZra9Vfad9n98kLOl5Xwk5OcYRktp9a4" />
+          </div>
+          <div
+            class="group relative h-24 rounded-2xl overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-green-600/40 group-hover:bg-green-600 transition-colors flex items-center justify-center z-10">
+              <span class="font-bold text-lg uppercase tracking-wider"
+                >Horror</span
+              >
+            </div>
+            <img
+              alt="Horror"
+              class="w-full h-full object-cover"
+              data-alt="Dark spooky texture"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc4BwksNUfw3FbLbRlYnR_N4E0yRAJPTt5Ax5BD0ChLVtdh_ocUdLFtTmHhKOBH6HHjoUfQn52KtTp6fdqPllGLyFDjd-sg10Vbs6vcHfXTXQtKBfRrsGjYLXyjn5lK-oVDXDgBe0Yi3bHzXvPsfaI_SPU9RZDr_XEgwy_34EeZ4PXiA6_mghbUucKHSkFOW88gWaGF4KQgxwFbWuK60nllk19E8GnC3AGczzEnZvqVWQuTWCoGPO0nQnrkULTUzpBMEeffhFYLoI" />
+          </div>
+          <div
+            class="group relative h-24 rounded-2xl overflow-hidden cursor-pointer">
+            <div
+              class="absolute inset-0 bg-pink-600/40 group-hover:bg-pink-600 transition-colors flex items-center justify-center z-10">
+              <span class="font-bold text-lg uppercase tracking-wider"
+                >Anime</span
+              >
+            </div>
+            <img
+              alt="Anime"
+              class="w-full h-full object-cover"
+              data-alt="Colorful anime style texture"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQFqXMSp7BXmMJkWBgahW_0vxUrDW7PU3aE_yxtjKYSzHamrGgIkXd6W5OHgIiCSM54WGz-xtzW1UYceckmE_1850FRPXLwrso0A4DKS2pdGzk7Y6PQq1QEul_uM7aQq98gju318hsSOxv5tpgVBVQkHlfQ2-IZq1SX_d-kSLnWmyvxXntr_Vgvq0Pi7vbPwIjB0KBDauAskekumtpoQeyyvRiZRscZRExqqq_bp9nLidFeuGkzJCSe6LwTo2_wWq7kfNMJa4ADmU" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-black/50 border-t border-white/5 py-16 px-6">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div class="col-span-1 md:col-span-1">
+          <a class="flex items-center gap-2 mb-6" href="#">
+            <div
+              class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+              <span class="material-icons text-white text-sm">play_arrow</span>
+            </div>
+            <span class="text-xl font-extrabold tracking-tighter text-white"
+              >MOVIE<span class="text-primary">HUB</span></span
+            >
+          </a>
+          <p class="text-white/40 text-sm leading-relaxed">
+            Streaming the best movies and TV shows from around the world. Join
+            our community and watch together.
+          </p>
+          <div class="flex gap-4 mt-6">
+            <a
+              class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white/60 hover:text-white"
+              href="#">
+              <span class="material-icons text-xl">facebook</span>
+            </a>
+            <a
+              class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white/60 hover:text-white"
+              href="#">
+              <span class="material-icons text-xl">camera_alt</span>
+            </a>
+            <a
+              class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors text-white/60 hover:text-white"
+              href="#">
+              <span class="material-icons text-xl">alternate_email</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-6">Platform</h4>
+          <ul class="space-y-3 text-white/50 text-sm">
+            <li><a class="hover:text-primary" href="#">Movies</a></li>
+            <li><a class="hover:text-primary" href="#">TV Shows</a></li>
+            <li><a class="hover:text-primary" href="#">Anime</a></li>
+            <li><a class="hover:text-primary" href="#">Documentaries</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-6">Support</h4>
+          <ul class="space-y-3 text-white/50 text-sm">
+            <li><a class="hover:text-primary" href="#">Help Center</a></li>
+            <li>
+              <a class="hover:text-primary" href="#">Subscription Plans</a>
+            </li>
+            <li><a class="hover:text-primary" href="#">Device Support</a></li>
+            <li><a class="hover:text-primary" href="#">Accessibility</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-white mb-6">Legal</h4>
+          <ul class="space-y-3 text-white/50 text-sm">
+            <li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+            <li><a class="hover:text-primary" href="#">Terms of Use</a></li>
+            <li>
+              <a class="hover:text-primary" href="#">Cookie Preferences</a>
+            </li>
+            <li><a class="hover:text-primary" href="#">Corporate Info</a></li>
+          </ul>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto border-t border-white/5 mt-16 pt-8 text-center text-white/30 text-xs">
+        © 2024 Movie Hub Streaming Service. All rights reserved.
+      </div>
+    </footer>
+    <!-- Floating Action Button -->
+    <button
+      class="fixed bottom-8 right-8 w-16 h-16 bg-primary text-white rounded-full shadow-2xl shadow-primary/40 flex items-center justify-center group hover:scale-110 active:scale-95 transition-all z-50">
+      <span
+        class="material-icons text-3xl group-hover:rotate-45 transition-transform"
+        >casino</span
+      >
+      <div
+        class="absolute right-full mr-4 bg-background-dark border border-white/10 px-4 py-2 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+        <span class="text-sm font-bold">Random Movie Picker</span>
+      </div>
+    </button>
+  </body>
+</html>

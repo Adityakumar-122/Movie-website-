@@ -1,0 +1,333 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Movie Player - Movie Hub</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#ea2a33",
+              "background-dark": "#0f0f0f",
+              "surface-dark": "#1a1a1a",
+              "control-bg": "rgba(0, 0, 0, 0.7)",
+            },
+            fontFamily: {
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1a1a1a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #444;
+        border-radius: 4px;
+      }
+      .video-container {
+        background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAFEQizZ_HxZdvoNwLa3usrdR7ytgMRpBoc9uifk_2IcoUhfrrQAvGPJQ72jo8pSylZB3LvKw7pMoRjjwG_Y-GFLVjrlVEbBTCFkvkh4di2mQb93NpM8-cWcn5acvRFghovemKo80502dNaj7uZraAAQ6wU2Zzd55xNcJoboGbWR9IsvGRl6XV0gEqxmGMr-PX3V_f3OGTX3xCzjlG-CROzX6Hz4ijX7feg7cWnEDG1ZVoq7qkj_-1y-zASb_LOj6SCbStOKxEkkOU);
+        background-size: cover;
+        background-position: center;
+      }
+      .progress-bar::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 12px;
+        height: 12px;
+        background: #ea2a33;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: transform 0.1s;
+      }
+      .progress-bar:hover::-webkit-slider-thumb {
+        transform: scale(1.3);
+      }
+      .chat-message {
+        animation: fadeIn 0.3s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-dark font-display text-white overflow-hidden h-screen flex">
+    <main
+      class="flex-grow relative h-full bg-black group video-container flex flex-col justify-between">
+      <div
+        class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black/80 to-transparent pointer-events-none z-10"></div>
+      <div
+        class="relative z-20 p-6 flex justify-between items-start opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="flex items-center gap-4">
+          <a
+            href="index.html"
+            class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm flex items-center justify-center transition-colors cursor-pointer">
+            <span class="material-icons-round text-white">arrow_back</span>
+          </a>
+          <div>
+            <h1 class="text-xl font-bold text-white drop-shadow-md">
+              Interstellar Odyssey
+            </h1>
+            <div class="flex items-center gap-2 text-sm text-gray-300">
+              <span class="bg-white/20 px-1.5 rounded text-xs font-medium"
+                >4K</span
+              >
+              <span>•</span>
+              <span>Sci-Fi, Adventure</span>
+              <span>•</span>
+              <span>2h 49m</span>
+            </div>
+          </div>
+        </div>
+        <button
+          class="flex items-center gap-2 px-4 py-2 bg-primary/90 hover:bg-primary text-white rounded-full text-sm font-semibold backdrop-blur-sm transition-colors shadow-lg">
+          <span class="material-icons-round text-sm">person_add</span>
+          <span>Invite Friends</span>
+        </button>
+      </div>
+      <div
+        class="absolute inset-0 flex items-center justify-center pointer-events-none"></div>
+      <div
+        class="relative z-20 px-6 pb-6 pt-20 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="w-full mb-4 group/progress relative cursor-pointer">
+          <div
+            class="absolute -top-6 left-[34%] bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover/progress:opacity-100 transition-opacity">
+            0:54:12
+          </div>
+          <div
+            class="h-1.5 w-full bg-white/20 rounded-full overflow-hidden relative">
+            <div class="absolute top-0 left-0 h-full bg-primary w-[34%]"></div>
+            <div
+              class="absolute top-0 left-0 h-full bg-white/30 w-[45%] opacity-0 group-hover/progress:opacity-100"></div>
+          </div>
+          <div
+            class="absolute top-1/2 -translate-y-1/2 left-[34%] w-4 h-4 bg-primary rounded-full shadow-lg scale-0 group-hover/progress:scale-100 transition-transform"></div>
+        </div>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <button
+              class="w-10 h-10 flex items-center justify-center text-white hover:text-primary transition-colors">
+              <span class="material-icons-round text-4xl">play_arrow</span>
+            </button>
+            <button
+              class="text-white/80 hover:text-white transition-colors relative group/tooltip">
+              <span class="material-icons-round text-3xl">replay_10</span>
+              <span
+                class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black/80 px-2 py-1 rounded text-xs opacity-0 group-hover/tooltip:opacity-100 whitespace-nowrap"
+                >Rewind 10s</span
+              >
+            </button>
+            <button
+              class="text-white/80 hover:text-white transition-colors relative group/tooltip">
+              <span class="material-icons-round text-3xl">forward_10</span>
+              <span
+                class="absolute -top-8 left-1/2 -translate-x-1/2 bg-black/80 px-2 py-1 rounded text-xs opacity-0 group-hover/tooltip:opacity-100 whitespace-nowrap"
+                >Forward 10s</span
+              >
+            </button>
+            <div class="flex items-center gap-2 group/volume ml-2">
+              <button class="text-white/80 hover:text-white">
+                <span class="material-icons-round text-2xl">volume_up</span>
+              </button>
+              <div
+                class="w-0 overflow-hidden group-hover/volume:w-24 transition-all duration-300 ease-out">
+                <div
+                  class="h-1 w-20 bg-white/20 rounded-full ml-2 relative cursor-pointer">
+                  <div
+                    class="absolute h-full bg-white w-[70%] rounded-full"></div>
+                </div>
+              </div>
+            </div>
+            <span class="text-sm text-gray-300 font-medium ml-2"
+              >0:54:12 / 2:49:31</span
+            >
+          </div>
+          <div class="flex items-center gap-4">
+            <button
+              class="flex items-center gap-2 px-3 py-1.5 rounded-lg hover:bg-white/10 transition-colors text-gray-300 hover:text-white text-sm">
+              <span class="material-icons-round text-xl">skip_next</span>
+              <span class="hidden lg:inline">Next Episode</span>
+            </button>
+            <button
+              class="text-white/80 hover:text-white transition-colors relative group/settings">
+              <span class="material-icons-round text-2xl">subtitles</span>
+              <div
+                class="absolute bottom-full right-0 mb-4 bg-surface-dark border border-white/10 p-2 rounded-lg w-48 shadow-xl opacity-0 invisible group-hover/settings:opacity-100 group-hover/settings:visible transition-all duration-200">
+                <div
+                  class="text-xs font-bold text-gray-400 px-2 py-1 uppercase tracking-wider">
+                  Subtitles
+                </div>
+                <div
+                  class="hover:bg-white/10 px-2 py-1.5 rounded flex justify-between items-center text-sm text-white cursor-pointer bg-white/5">
+                  <span>English (CC)</span>
+                  <span class="material-icons-round text-primary text-sm"
+                    >check</span
+                  >
+                </div>
+                <div
+                  class="hover:bg-white/10 px-2 py-1.5 rounded flex justify-between items-center text-sm text-gray-300 cursor-pointer">
+                  <span>Spanish</span>
+                </div>
+                <div
+                  class="hover:bg-white/10 px-2 py-1.5 rounded flex justify-between items-center text-sm text-gray-300 cursor-pointer">
+                  <span>Off</span>
+                </div>
+              </div>
+            </button>
+            <button class="text-white/80 hover:text-white transition-colors">
+              <span class="material-icons-round text-2xl">settings</span>
+            </button>
+            <button
+              class="text-white/80 hover:text-white transition-colors ml-2">
+              <span class="material-icons-round text-3xl">fullscreen</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <aside
+      class="w-80 bg-surface-dark border-l border-white/10 flex flex-col h-full z-30 transition-all duration-300 ease-in-out relative"
+      id="sidebar">
+      <button
+        class="absolute -left-8 top-1/2 -translate-y-1/2 bg-surface-dark p-1 rounded-l-lg border-y border-l border-white/10 text-gray-400 hover:text-white"
+        onclick="
+          document.getElementById('sidebar').classList.toggle('!w-0');
+          document
+            .getElementById('sidebar')
+            .classList.toggle('overflow-hidden');
+        ">
+        <span class="material-icons-round">chevron_right</span>
+      </button>
+      <div
+        class="p-4 border-b border-white/10 flex justify-between items-center bg-surface-dark/50 backdrop-blur-md">
+        <h2 class="font-bold text-white flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+          Watch Party
+        </h2>
+        <div class="flex -space-x-2">
+          <img
+            alt="User 1"
+            class="w-8 h-8 rounded-full border-2 border-surface-dark"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv5BrL5n9BH7lfbwNho2iSLggmZKTZ-s-8W7Sx2JFlENBB6Gw9LfAZpU-UY3_gQ-rjVuezMY4urCLjJvjGlddybSvX64Wr-r1gig9bIXB8Lka-_En3JU-Nuk4JXTBUqB6iK8RAWx0fpNNGsfJJQ36gB758xwm3W7VeeWxkCv4CdQXBONqS0DIMbGub0LF8BOgaLNURZQu64LbiIQO-3IEKLOTRvgAS8Jt04J6s9l2228gm07gvv3LsM5SBHK5PSiCETet8yYtqitw" />
+          <img
+            alt="User 2"
+            class="w-8 h-8 rounded-full border-2 border-surface-dark"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCckvYsvnRYHodTUfHRcBqlO-wMYMlU3SLWL3PSNfqvJfwo8wskW7QND-lsHnkq5fJR08D9qnnOnZBlVp4kWS4NDHvJgvlTyW48V9FQoWdVAdWxzTYJc1IFcWuvgoVoX8gy2Y6_yngd5b5-uYMbtU05UAFJ3-xxvyru2WRHqpGJfTw0JTs4rzI7CScy6YzZGrZqf5IRnsy4gxzycSBl28ugCyuz4vl07m2UAK4zISiUB8ClasbZJPwE-5HrWpSBzza18RuSUxQ-N3k" />
+          <div
+            class="w-8 h-8 rounded-full border-2 border-surface-dark bg-gray-700 flex items-center justify-center text-xs font-bold">
+            +3
+          </div>
+        </div>
+      </div>
+      <div class="flex-grow overflow-y-auto p-4 space-y-4 bg-black/20">
+        <div class="text-center text-xs text-gray-500 my-4">
+          <span class="bg-white/5 px-3 py-1 rounded-full"
+            >Sarah joined the party</span
+          >
+        </div>
+        <div class="chat-message flex gap-3 group">
+          <img
+            alt="User"
+            class="w-8 h-8 rounded-full mt-1 object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKzJ1nRYZmti0vbifWAFmyyT4STv3rQM1u3R3YJPTuddQ3ZnI_0G6kYAGgiwCoGo2hS8vT3tyvhnDk4KbfAjCzIq_QJMdo99xElgL4qIBgXIJTqZTPLBvCKBf6tl0_GFNnJMs6-jDQc-Lbf8rafQXESJvAZe2uTOJyrGt1F61izOCh5FqehfxjPmgHXmX7TR0wxbgKaueI7zqyri3yCWJFpkVqR1PB7gaXSj5BhnF4FZm5g7wD8yGtdVKYohG6eohACkeMYSshCLg" />
+          <div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-sm font-bold text-gray-200">Sarah</span>
+              <span class="text-[10px] text-gray-500">2m ago</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Wait, is that the same actor from the previous movie? 😲
+            </p>
+          </div>
+        </div>
+        <div class="chat-message flex gap-3 group">
+          <img
+            alt="User"
+            class="w-8 h-8 rounded-full mt-1 object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuClh547QNVsesstqqgBVjjIisLg95rMM9-_uEWTsR4GYL09b2xOt10YelXFDdIymOsnws_jziAI2p_zQaTCUl4HKC2orJYejYcyxHmiezGBcnnOn3YGowJY66g7JAkfAekKroHUhCddS81w8_pfRTKVfw1-HOnje6V6Y9Tql0Rd8TKDUygLEi36R_Uu4pN9JwlnHPXqtbWg_NFJo73_iIZHlxuIhKs8Un-i7E1n52_SqnDdBrhpBgYossLeSEISv5qh9JInB6UkrxE" />
+          <div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-sm font-bold text-gray-200">Mike</span>
+              <span class="text-[10px] text-gray-500">1m ago</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              Yeah! He played the villain in the first one. Total plot twist
+              coming up...
+            </p>
+          </div>
+        </div>
+        <div class="chat-message flex gap-3 group">
+          <img
+            alt="User"
+            class="w-8 h-8 rounded-full mt-1 object-cover"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCd2B3cNk6N-10kHp10B0wF3BqcoWe7tlClYHkEHckijW1-hiSBAffjJZiOR0EYgfsKPO1WeFCFAsZtZa1_D0AszWfA3R9Jd-SqH250VK8DPSqGr5KEfbs-KjjX0qd6fCx-Jz-82mFIRFaRC7N3kr2EODv0ChxDho48RuLu4HSGu64S1XUc6vFXlOQCE-4jnSfVX99g6IcAy5yGO8rpHsjRGSX9h6HWw_zv0EzOaTc932fsty7oeR6-q-5YfvLcOg-PBRBB_sjHih8" />
+          <div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-sm font-bold text-primary">You</span>
+              <span class="text-[10px] text-gray-500">Just now</span>
+            </div>
+            <p class="text-sm text-gray-300 leading-relaxed">
+              No spoilers please!! 🤫
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="p-4 bg-surface-dark border-t border-white/10">
+        <div class="relative">
+          <input
+            class="w-full bg-black/30 text-sm text-white border border-white/10 rounded-full pl-4 pr-10 py-3 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all placeholder-gray-500"
+            placeholder="Say something..."
+            type="text" />
+          <button
+            class="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full hover:bg-white/10 text-primary transition-colors">
+            <span class="material-icons-round text-xl">send</span>
+          </button>
+        </div>
+        <div class="flex justify-between mt-3 px-1">
+          <div class="flex gap-2">
+            <button class="text-gray-400 hover:text-white transition-colors">
+              <span class="material-icons-round text-xl"
+                >sentiment_satisfied</span
+              >
+            </button>
+            <button class="text-gray-400 hover:text-white transition-colors">
+              <span class="material-icons-round text-xl">gif</span>
+            </button>
+          </div>
+          <button
+            class="text-xs text-gray-400 hover:text-white hover:underline">
+            Invite more
+          </button>
+        </div>
+      </div>
+    </aside>
+  </body>
+</html>
